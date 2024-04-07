@@ -1,0 +1,9 @@
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/web/PDFGenerator.java
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/dto/PrintRequestDTO.java
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/excepcion/GlobalExceptionHandler.java
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/dto/OrderDetailDTO.java
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/config/CorsConfig.java
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/web/PrinterController.java
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/dto/ErrorDTO.java
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/CrudApplication.java
+/home/elmer/Desktop/res/spring_boot/printer_plugin/src/main/java/com/monolitica/crud/dto/PrintDTO.java
