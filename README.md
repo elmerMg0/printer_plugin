@@ -31,7 +31,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado lo siguiente:
 4. **Acceder a la Aplicación:**
    La aplicación estará disponible en el siguiente enlace:
    ```
-   http://localhost:9090
+   http://localhost:9090/v1/printer
    ```
 
 ## Uso del Plugin
