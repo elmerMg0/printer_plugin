@@ -86,7 +86,6 @@ public class PDFGenerator {
         /* Version actuliazada x */
         String place = saleInfo.getPlace();
         printerJob.setPrintable((graphics, pf, pageIndex) -> {
-        System.out.println("Printer one" + pageIndex);
         if (pageIndex == 0 ) { // Solo dibujar en la primera página (pageIndex = 0)
             Graphics2D g2d = (Graphics2D) graphics;
             // Obtener las dimensiones de la página escalada
@@ -115,7 +114,7 @@ public class PDFGenerator {
             g2d.setFont(font16);
             String table = saleInfo.getNro_mesa();
             Integer nroPedido = saleInfo.getNro_pedido();
-            String mesaText = "Comanda: " + table;
+            String mesaText = "Mesa: " + table;
             if(place.equals(COCINA)){
                 mesaText += " Nro: " + nroPedido;
             }
@@ -238,5 +237,45 @@ public class PDFGenerator {
 
         return null;
     }
-     // Método para calcular la altura correspondiente para mantener la relación de aspecto
+
+
+    protected String printTest (String printerName) throws PrinterException {
+        PrintService printService = findPrintService(printerName);
+
+        String jsonResponse;
+        if (printService == null) {
+            jsonResponse = "{\"success\": false, \"message\": \"No se encontro la impresora\"}";
+        }else{
+            PrinterJob printerJob = PrinterJob.getPrinterJob();
+            printerJob.setPrintService(printService);
+            
+            Paper paper = new Paper();
+            paper.setSize(200, 500);
+    
+            PageFormat pageFormat = new PageFormat();
+            pageFormat.setPaper(paper);
+    
+            
+            printerJob.setPrintable((graphics, pf, pageIndex) -> {
+                if (pageIndex == 0 ) { 
+                    Graphics2D g2d = (Graphics2D) graphics;
+                    String text = "Test de impresión";
+                    Font font12 = new Font("Arial", Font.PLAIN, 12);
+                    g2d.drawString(text, 0, font12.getSize());
+                    return Printable.PAGE_EXISTS;
+                } else {
+                    return Printable.NO_SUCH_PAGE;
+                }
+            }, pageFormat);
+        
+            try {
+                printerJob.print();
+                jsonResponse = "{\"success\": true, \"message\": \"Imprimiendo\"}";
+            } catch (PrinterException e) {
+                e.printStackTrace();
+                jsonResponse = "{\"success\": false, \"message\": \"Ocurrio un error al imprimir\"}";
+            }
+        }
+        return jsonResponse;
+    }
 }
